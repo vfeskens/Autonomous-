@@ -1,0 +1,58 @@
+name: Daily Improvement
+
+on:
+  schedule:
+    # Elke dag om 08:00 UTC
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+    inputs:
+      focus_area:
+        description: 'Specifiek verbetergebied (optioneel)'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  improve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Claude Code for improvements
+        id: claude
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Analyseer dit project en maak het elke dag een beetje beter.
+
+            Lees het bestand IMPROVEMENT_CONFIG.md voor richtlijnen over welke
+            verbeteringen gewenst zijn.
+
+            Focus vandaag op EEN van de volgende gebieden (kies het meest impactvolle):
+            ${{ github.event.inputs.focus_area || '- Code kwaliteit verbeteren
+            - Tests toevoegen of verbeteren
+            - Documentatie bijwerken
+            - Performance optimalisaties
+            - Security verbeteringen
+            - Refactoring voor betere leesbaarheid
+            - Dependencies updaten
+            - Bug fixes' }}
+
+            Regels:
+            1. Maak kleine, gerichte wijzigingen (max 1-2 bestanden per keer)
+            2. Elke wijziging moet het project meetbaar beter maken
+            3. Breek geen bestaande functionaliteit
+            4. Schrijf duidelijke commit messages in het Nederlands
+            5. Als er niets te verbeteren valt, geef dat eerlijk aan
+
+          direct_prompt: true
+          allowed_tools: "Read,Write,Edit,Glob,Grep,Bash(git status),Bash(git diff)"
