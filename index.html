@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Autonomous</h1>
+            <nav id="nav" class="hidden">
+                <button data-screen="game" class="active">Wereld</button>
+                <button data-screen="diary">Dagboek</button>
+            </nav>
+        </header>
+
+        <main id="screen">
+            <!-- Welkom scherm (eerste keer) -->
+            <section id="welcome-screen">
+                <div class="story-text">
+                    <p>Je opent je ogen.</p>
+                    <p>Je staat aan de rand van een rustig dal. Een klein hutje staat tussen de bomen.</p>
+                    <p>Dit is het begin van jouw verhaal.</p>
+                </div>
+                <div class="input-area">
+                    <label for="player-name">Hoe heet je?</label>
+                    <input type="text" id="player-name" placeholder="Je naam..." maxlength="30">
+                    <button id="start-btn" class="btn-primary">Begin je avontuur</button>
+                </div>
+            </section>
+
+            <!-- Dagelijkse check-in -->
+            <section id="game-screen" class="hidden">
+                <div id="location-header">
+                    <span id="location-name">Je hutje</span>
+                    <span id="day-counter">Dag 1</span>
+                </div>
+
+                <div id="story-area">
+                    <!-- Dynamische verhaal-tekst en vragen -->
+                </div>
+
+                <div id="choices-area">
+                    <!-- Dynamische keuzes -->
+                </div>
+
+                <div id="text-input-area" class="hidden">
+                    <input type="text" id="free-text" placeholder="Typ je antwoord..." maxlength="200">
+                    <button id="submit-text" class="btn-primary">Verstuur</button>
+                </div>
+            </section>
+
+            <!-- Dagboek overzicht -->
+            <section id="diary-screen" class="hidden">
+                <h2>Dagboek</h2>
+                <div id="diary-entries">
+                    <p class="empty-state">Je dagboek is nog leeg. Speel een dag om je eerste herinnering te maken.</p>
+                </div>
+            </section>
+
+            <!-- Dagelijks klaar scherm -->
+            <section id="done-screen" class="hidden">
+                <div class="story-text">
+                    <p>De zon zakt langzaam achter de heuvels.</p>
+                    <p id="done-summary"></p>
+                    <p>Tot morgen, <span id="done-player-name"></span>.</p>
+                </div>
+                <button id="view-diary-btn" class="btn-secondary">Bekijk je dagboek</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="game/data.js"></script>
+    <script src="game/storage.js"></script>
+    <script src="game/diary.js"></script>
+    <script src="game/engine.js"></script>
+    <script src="game/ui.js"></script>
+    <script src="game/main.js"></script>
+</body>
+</html>

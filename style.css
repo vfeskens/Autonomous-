@@ -1,0 +1,347 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #1a1a2e;
+    --bg-light: #16213e;
+    --surface: #0f3460;
+    --text: #e0e0e0;
+    --text-muted: #8a8a9a;
+    --accent: #e94560;
+    --accent-soft: #533483;
+    --success: #4ecca3;
+    --warm: #f5c469;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+#app {
+    max-width: 600px;
+    width: 100%;
+    padding: 2rem 1.5rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    color: var(--warm);
+}
+
+nav {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+nav button {
+    background: none;
+    border: 1px solid var(--text-muted);
+    color: var(--text-muted);
+    padding: 0.4rem 1.2rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+nav button.active,
+nav button:hover {
+    border-color: var(--warm);
+    color: var(--warm);
+}
+
+/* Story tekst */
+.story-text {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.story-text p {
+    margin-bottom: 0.8rem;
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.story-text p:nth-child(2) { animation-delay: 0.4s; }
+.story-text p:nth-child(3) { animation-delay: 0.8s; }
+.story-text p:nth-child(4) { animation-delay: 1.2s; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Location header */
+#location-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--surface);
+}
+
+#location-name {
+    color: var(--warm);
+    font-style: italic;
+}
+
+#day-counter {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Keuze knoppen */
+#choices-area {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.choice-btn {
+    background: var(--bg-light);
+    border: 1px solid var(--surface);
+    color: var(--text);
+    padding: 0.8rem 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 6px;
+    text-align: left;
+    transition: all 0.2s;
+}
+
+.choice-btn:hover {
+    border-color: var(--warm);
+    background: var(--surface);
+}
+
+/* Checkbox keuzes */
+.activity-option {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1rem;
+    background: var(--bg-light);
+    border: 1px solid var(--surface);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.activity-option:hover {
+    border-color: var(--warm);
+}
+
+.activity-option.selected {
+    border-color: var(--success);
+    background: var(--surface);
+}
+
+.activity-option input[type="checkbox"] {
+    accent-color: var(--success);
+}
+
+/* Tekst invoer */
+.input-area {
+    margin-top: 1.5rem;
+}
+
+.input-area label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    background: var(--bg-light);
+    border: 1px solid var(--surface);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--warm);
+}
+
+#text-input-area {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+#text-input-area input {
+    flex: 1;
+}
+
+/* Knoppen */
+.btn-primary {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background: var(--accent);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+    opacity: 0.85;
+}
+
+.btn-secondary {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background: none;
+    border: 1px solid var(--warm);
+    border-radius: 6px;
+    color: var(--warm);
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background: var(--surface);
+}
+
+.btn-confirm {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background: var(--success);
+    border: none;
+    border-radius: 6px;
+    color: var(--bg);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-confirm:hover {
+    opacity: 0.85;
+}
+
+/* Dagboek */
+#diary-entries {
+    margin-top: 1rem;
+}
+
+.diary-day {
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    background: var(--bg-light);
+    border-left: 3px solid var(--warm);
+    border-radius: 0 6px 6px 0;
+}
+
+.diary-day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.diary-date {
+    font-weight: bold;
+    color: var(--warm);
+}
+
+.diary-mood {
+    font-size: 1.2rem;
+}
+
+.diary-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.4rem;
+}
+
+.diary-tag {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.5rem;
+    background: var(--surface);
+    border-radius: 3px;
+    color: var(--text-muted);
+}
+
+.diary-highlight {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+.empty-state {
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* NPC dialoog */
+.npc-message {
+    background: var(--surface);
+    border-radius: 12px 12px 12px 0;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.8rem;
+    max-width: 85%;
+}
+
+.npc-name {
+    font-size: 0.8rem;
+    color: var(--warm);
+    margin-bottom: 0.3rem;
+}
+
+/* Utility */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    #app {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+    }
+}

@@ -38,14 +38,12 @@ jobs:
             verbeteringen gewenst zijn.
 
             Focus vandaag op EEN van de volgende gebieden (kies het meest impactvolle):
-            ${{ github.event.inputs.focus_area || '- Code kwaliteit verbeteren
-            - Tests toevoegen of verbeteren
-            - Documentatie bijwerken
-            - Performance optimalisaties
-            - Security verbeteringen
-            - Refactoring voor betere leesbaarheid
-            - Dependencies updaten
-            - Bug fixes' }}
+            ${{ github.event.inputs.focus_area || '- Nieuwe NPC-dialogen en vragen toevoegen aan game/data.js
+            - Nieuwe locaties of events toevoegen
+            - Dagboek-weergave verbeteren
+            - Game balancing en progressie verfijnen
+            - UI/UX verbeteringen in style.css
+            - Bug fixes in de game logica' }}
 
             Regels:
             1. Maak kleine, gerichte wijzigingen (max 1-2 bestanden per keer)

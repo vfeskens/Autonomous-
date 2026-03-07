@@ -1,26 +1,36 @@
 # Autonomous
 
-Een project dat zichzelf elke dag een beetje beter maakt met behulp van Claude.
+Een text-based browser game die spelenderwijs een persoonlijk dagboek opbouwt.
 
-## Hoe het werkt
+## Het idee
 
-Een dagelijkse GitHub Actions workflow:
+Je speelt elke dag even een vriendelijke idle-simulatie. Via speelse keuzes,
+in-game acties en NPC-gesprekken verzamelt de game informatie over jouw echte
+dag — zonder dat het als een dagboek voelt. Op de achtergrond bouwt het een
+gestructureerd overzicht op van je stemmingen, activiteiten en hoogtepunten.
 
-1. Draait elke dag om 08:00 UTC
-2. Analyseert het project met Claude Code
-3. Stelt gerichte verbeteringen voor via een pull request
-4. Houdt zich aan de richtlijnen in `IMPROVEMENT_CONFIG.md`
+## Features
 
-## Setup
+- Dagelijkse check-in van 2-3 minuten
+- Wereld die zich ontvouwt naarmate je meer speelt
+- NPC's die terloops vragen stellen over je dag
+- Gestructureerd dagboek dat automatisch wordt opgebouwd
+- Volledig lokaal — jouw data blijft in je browser
 
-1. Voeg een `ANTHROPIC_API_KEY` toe als GitHub repository secret
-2. De workflow draait automatisch elke dag
-3. Je kunt de workflow ook handmatig starten via GitHub Actions
+## Spelen
 
-## Handmatig starten
+Open `index.html` in je browser. Geen installatie nodig.
 
-Ga naar **Actions** > **Daily Improvement** > **Run workflow** en optioneel een specifiek verbetergebied opgeven.
+## Technologie
 
-## Configuratie
+- Vanilla HTML/CSS/JS — geen frameworks, geen build tools
+- localStorage voor opslag
+- Statisch hostbaar (GitHub Pages)
 
-Pas `IMPROVEMENT_CONFIG.md` aan om te bepalen waar de dagelijkse verbeteringen zich op moeten richten.
+## Zelf-verbeterend
+
+Een dagelijkse GitHub Actions workflow gebruikt Claude om het project elke dag
+een beetje beter te maken: nieuwe content, betere balancing, en verfijningen.
+
+Zie `VISION.md` voor de volledige productvisie en `IMPROVEMENT_CONFIG.md` voor
+de verbeterconfiguratie.
